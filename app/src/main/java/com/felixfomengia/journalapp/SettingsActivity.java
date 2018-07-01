@@ -1,0 +1,71 @@
+package com.felixfomengia.journalapp;
+
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.preference.Preference;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+public class SettingsActivity extends AppCompatPreferenceActivity {
+    Activity base = this;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setupActionBar();
+        addPreferencesFromResource(R.xml.pref_general);
+
+
+        Preference myPref = findPreference("clear_journals");
+        myPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            public boolean onPreferenceClick(Preference preference) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(base);
+                alert.setTitle("Are you sure ?");
+                alert.setMessage("This will wipe your entire thoughts & data");
+                alert.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String qu = "DROP TABLE NOTES";
+                        if (MainActivity.handler.execAction(qu)) {
+                            Toast.makeText(getBaseContext(), "Done", Toast.LENGTH_LONG).show();
+                            MainActivity.handler.createTable();
+                            dialog.dismiss();
+                        }
+                    }
+                });
+                alert.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        return;
+                    }
+                });
+                alert.show();
+                return true;
+            }
+        });
+
+
+    }
+
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+}
