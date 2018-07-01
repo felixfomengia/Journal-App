@@ -1,5 +1,5 @@
 # Journal-App
-The Journal app is an android application that helps users to pen down your thoughts and feelings.
+The Journal app is an android application that helps users to pen down your thoughts and feelings. App uses Sqlite database to save users thoughts and feelings into the app.
 
 # Getting Started
 To get a copy of the project, click Fork at the top right corner of this page then clone the Fork repository from your GitHub account. 
@@ -12,7 +12,7 @@ for testing.
 # Installing
 The current version of the app can be installed by downloading the one on this repo https://github.com/felixfomengia/Journal-App/blob/dev/app/app-release.apk
 [App Release Apk](https://github.com/felixfomengia/Journal-App/blob/dev/app/app-release.apk) or on Google Play Store with this 
-link [Journal App on Play Store](https://play.google.com/store/apps/details?id=com.felixfomengia.journalapp&hl=en)
+link [Journal App on Google Play Store](https://play.google.com/store/apps/details?id=com.felixfomengia.journalapp&hl=en)
 
 # Versioning
 We use GitHub for versioning.
@@ -20,13 +20,16 @@ We use GitHub for versioning.
 # Authors
 Felix Fomengia, Android app developer
 
-#License
+# License
 GNU General Public License family	gpl
 
 # Acknowledgments
 - The ALC community
 - Google
 - Udacity for the scholarship 
+
+# Google Play Store Link
+Install app here directly on Google Play Store [Journal App on Google Play Store](https://play.google.com/store/apps/details?id=com.felixfomengia.journalapp&hl=en)
 
 # App Screenshots
 ![Screenshot 1](https://github.com/felixfomengia/Journal-App/blob/master/screenshots/screenshot1.png)
